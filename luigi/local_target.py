@@ -37,7 +37,7 @@ class atomic_file(AtomicLocalFile):
     """
 
     def move_to_final_destination(self):
-        os.rename(self.tmp_path, self.path)
+        os.replace(self.tmp_path, self.path)
 
     def generate_tmp_path(self, path):
         return path + '-luigi-tmp-%09d' % random.randrange(0, 10_000_000_000)
